@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d1c">
+  <title>PlayStar Digital | Admin Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <div class="login-glow glow-one"></div><div class="login-glow glow-two"></div>
+    <div class="login-card">
+      <div class="brand-mark">▶</div>
+      <div class="brand-title">PlayStar <span>Digital</span></div>
+      <p class="muted">Music distribution, in one place.</p>
+      <div class="login-rule"></div>
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to your administration workspace.</p>
+      <form id="loginForm">
+        <label for="loginEmail">Email address</label>
+        <input id="loginEmail" type="email" value="admin@playstardigital.test" autocomplete="username" required>
+        <label for="loginPassword">Password</label>
+        <div class="password-wrap"><input id="loginPassword" type="password" value="Finext@2026" autocomplete="current-password" required><button id="togglePassword" class="eye-btn" type="button" aria-label="Show password">◉</button></div>
+        <div class="login-options"><label class="check-label"><input type="checkbox" id="rememberMe" checked> Remember this device</label><span class="tiny">Demo access</span></div>
+        <button class="primary-btn login-submit" type="submit">Sign in <span>↗</span></button>
+        <p id="loginError" class="login-error" role="alert"></p>
+      </form>
+      <div class="demo-hint"><span class="status-dot"></span> Demo credentials prefilled · front-end preview</div>
+      <div class="login-footer">POWERED BY <strong>FINEXT SOFTWARE SOLUTION</strong></div>
+    </div>
+    <div class="login-side-copy"><span class="eyebrow">YOUR MUSIC. YOUR MOMENT.</span><h2>Built for the<br><em>next wave</em> of music.</h2><p>Manage releases, monitor delivery, and keep your artist community moving.</p><div class="side-stats"><div><strong>2.8B</strong><small>Streams tracked</small></div><div><strong>150+</strong><small>Countries reached</small></div><div><strong>24/7</strong><small>Platform visibility</small></div></div></div>
+  </section>
+
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><div class="brand-mark small">▶</div><div><strong>PlayStar <span>Digital</span></strong><small>MUSIC DISTRIBUTION</small></div><button id="closeSidebar" class="mobile-close" aria-label="Close menu">×</button></div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-menu" id="navMenu">
+        <button class="nav-item active" data-page="Overview"><span class="nav-icon">⌂</span><span>Overview</span></button>
+        <button class="nav-item" data-page="Artists & Labels"><span class="nav-icon">♙</span><span>Artists & Labels</span><b>24</b></button>
+        <button class="nav-item" data-page="Releases"><span class="nav-icon">♫</span><span>Releases</span><b>8</b></button>
+        <button class="nav-item" data-page="Distribution"><span class="nav-icon">⇧</span><span>Distribution</span></button>
+        <button class="nav-item" data-page="Royalties & Payouts"><span class="nav-icon">◈</span><span>Royalties & Payouts</span></button>
+        <button class="nav-item" data-page="Support Tickets"><span class="nav-icon">◌</span><span>Support Tickets</span><b class="alert-count">5</b></button>
+        <button class="nav-item" data-page="Rights & Takedown"><span class="nav-icon">◇</span><span>Rights & Takedown</span></button>
+        <div class="nav-divider"></div>
+        <div class="workspace-label">MANAGEMENT</div>
+        <button class="nav-item" data-page="Users & Roles"><span class="nav-icon">♧</span><span>Users & Roles</span></button>
+        <button class="nav-item" data-page="Reports & Analytics"><span class="nav-icon">▥</span><span>Reports & Analytics</span></button>
+        <button class="nav-item" data-page="Website CMS"><span class="nav-icon">▣</span><span>Website CMS</span></button>
+        <button class="nav-item" data-page="Settings"><span class="nav-icon">⚙</span><span>Settings</span></button>
+        <button class="nav-item" data-page="Audit Logs"><span class="nav-icon">☷</span><span>Audit Logs</span></button>
+      </nav>
+      <div class="sidebar-promo"><div class="promo-orb">♫</div><span class="eyebrow">CREATOR FIRST</span><strong>Your music.<br>Everywhere.</strong><p>One workspace for every release and every milestone.</p><button data-page="Releases">Explore releases <span>↗</span></button></div>
+      <div class="sidebar-bottom"><div class="finext-symbol">F</div><div><small>POWERED BY</small><strong>Finext Software Solution</strong></div></div>
+    </aside>
+    <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button id="mobileMenu" class="icon-btn mobile-menu" aria-label="Open menu">☰</button>
+        <div class="crumb"><span>Workspace</span><span class="crumb-slash">/</span><strong id="currentCrumb">Overview</strong></div>
+        <div class="topbar-right">
+          <div class="search-box"><span>⌕</span><input id="globalSearch" placeholder="Search anything..." aria-label="Search dashboard"><kbd>⌘ K</kbd></div>
+          <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">☼</button>
+          <button class="icon-btn notification-btn" id="notificationBtn" title="Notifications" aria-label="Notifications">♧<i></i></button>
+          <div class="profile-wrap">
+            <button class="profile-button" id="profileButton"><div class="avatar">AD</div><span><strong id="profileName">Admin</strong><small>Super Admin</small></span><span class="chevron">⌄</span></button>
+            <div class="profile-menu hidden" id="profileMenu"><div class="profile-menu-head"><strong>Admin account</strong><small>admin@playstardigital.test</small></div><button id="profileSettings">Account settings</button><button id="logoutBtn" class="logout-option">↪ Log out</button></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="welcome-row">
+          <div><div class="eyebrow"><span class="live-dot"></span> PLATFORM OVERVIEW</div><h1 id="pageTitle">Good morning, Admin <span class="wave">✦</span></h1><p id="pageSubtitle">Here’s what’s happening across your music business today.</p></div>
+          <div class="welcome-actions"><div class="date-chip"><span>▦</span><div><strong id="currentDate">Monday, 12 October 2026</strong><small>Live workspace snapshot</small></div></div><button class="primary-btn" id="addReleaseBtn"><span>＋</span> New release</button></div>
+        </section>
+
+        <section id="overviewPage" class="page-panel">
+          <div class="stats-grid">
+            <article class="stat-card stat-purple"><div class="stat-top"><span>Total artists</span><span class="stat-icon">♙</span></div><div class="stat-value" data-count="12458">12,458</div><div class="stat-bottom"><span class="trend up">↗ 12.8%</span><span>vs last month</span><svg viewBox="0 0 120 32" class="spark"><path d="M2 25 C14 25 14 9 27 15 S44 29 56 17 S75 5 85 14 S103 22 118 4"/></svg></div></article>
+            <article class="stat-card stat-blue"><div class="stat-top"><span>Total releases</span><span class="stat-icon">♫</span></div><div class="stat-value" data-count="28642">28,642</div><div class="stat-bottom"><span class="trend up">↗ 18.4%</span><span>vs last month</span><svg viewBox="0 0 120 32" class="spark"><path d="M2 26 C14 23 18 6 31 13 S48 24 59 13 S77 5 90 14 S105 18 118 3"/></svg></div></article>
+            <article class="stat-card stat-teal"><div class="stat-top"><span>Total streams</span><span class="stat-icon">◉</span></div><div class="stat-value">2.84B</div><div class="stat-bottom"><span class="trend up">↗ 24.2%</span><span>vs last month</span><svg viewBox="0 0 120 32" class="spark"><path d="M2 27 C14 24 19 12 30 16 S49 29 61 12 S79 6 89 15 S105 18 118 2"/></svg></div></article>
+            <article class="stat-card stat-amber"><div class="stat-top"><span>Gross earnings</span><span class="stat-icon">＄</span></div><div class="stat-value">$458,732</div><div class="stat-bottom"><span class="trend up">↗ 8.6%</span><span>vs last month</span><svg viewBox="0 0 120 32" class="spark"><path d="M2 25 C15 27 18 8 30 13 S49 21 60 15 S78 6 91 14 S107 21 118 7"/></svg></div></article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="panel revenue-panel"><div class="panel-head"><div><h2>Revenue performance</h2><p>Revenue across your distribution network</p></div><select id="revenueRange" class="select-control"><option value="7">Last 7 days</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option></select></div><div class="chart-legend"><span><i class="legend-dot violet"></i>Net revenue</span><span><i class="legend-dot cyan"></i>Streams value</span><span class="chart-total">$84,290 <small>+14.6%</small></span></div><div class="chart-wrap"><div class="y-labels"><span>$100k</span><span>$75k</span><span>$50k</span><span>$25k</span><span>$0</span></div><svg id="revenueChart" viewBox="0 0 700 230" preserveAspectRatio="none" aria-label="Revenue chart"><defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#8b5cf6" stop-opacity=".28"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/></linearGradient></defs><g class="chart-grid"><path d="M0 20H700 M0 65H700 M0 110H700 M0 155H700 M0 200H700"/></g><path class="chart-area" d="M0 175 C40 160 45 128 100 142 S165 88 210 115 S275 145 315 87 S390 115 420 74 S490 92 530 55 S600 90 640 34 S675 45 700 20 L700 200 L0 200Z"/><path class="chart-line" d="M0 175 C40 160 45 128 100 142 S165 88 210 115 S275 145 315 87 S390 115 420 74 S490 92 530 55 S600 90 640 34 S675 45 700 20"/><path class="chart-line secondary" d="M0 190 C50 183 60 169 100 175 S160 145 210 160 S270 170 315 143 S390 155 420 130 S485 148 530 119 S590 133 640 100 S680 105 700 90"/></svg></div><div class="chart-xlabels"><span>06 Oct</span><span>07 Oct</span><span>08 Oct</span><span>09 Oct</span><span>10 Oct</span><span>11 Oct</span><span>12 Oct</span></div></section>
+            <section class="panel platform-panel"><div class="panel-head"><div><h2>Platform distribution</h2><p>Streams by destination</p></div><button class="dots-btn" aria-label="More options">•••</button></div><div class="donut-area"><div class="donut"><div><strong>2.84B</strong><small>Total streams</small></div></div></div><div class="platform-list"><div><span><i class="platform-dot spotify"></i>Spotify</span><strong>38%</strong></div><div><span><i class="platform-dot apple"></i>Apple Music</span><strong>22%</strong></div><div><span><i class="platform-dot youtube"></i>YouTube Music</span><strong>18%</strong></div><div><span><i class="platform-dot amazon"></i>Amazon Music</span><strong>12%</strong></div><div><span><i class="platform-dot other"></i>Other stores</span><strong>10%</strong></div></div></section>
+            <section class="panel approvals-panel"><div class="panel-head"><div><h2>Pending approvals <span class="count-pill" id="approvalCount">4</span></h2><p>Releases waiting for a review</p></div><button class="text-btn" data-page="Releases">View all ↗</button></div><div class="approval-list" id="approvalList">
+              <div class="approval-item"><div class="cover cover-one">♫</div><div class="approval-meta"><strong>Forever Young</strong><small>Armaan Malik · Single</small><span>Submitted 18 min ago</span></div><button class="approve-btn" data-approve="Forever Young">Approve</button><button class="reject-btn" data-reject="Forever Young">Review</button></div>
+              <div class="approval-item"><div class="cover cover-two">✦</div><div class="approval-meta"><strong>Broken Hearts</strong><small>Sana Khan · EP</small><span>Submitted 42 min ago</span></div><button class="approve-btn" data-approve="Broken Hearts">Approve</button><button class="reject-btn" data-reject="Broken Hearts">Review</button></div>
+              <div class="approval-item"><div class="cover cover-three">◖</div><div class="approval-meta"><strong>Rising Sun</strong><small>The Vibe · Single</small><span>Submitted 1 hr ago</span></div><button class="approve-btn" data-approve="Rising Sun">Approve</button><button class="reject-btn" data-reject="Rising Sun">Review</button></div>
+              <div class="approval-item"><div class="cover cover-four">✧</div><div class="approval-meta"><strong>Lost in Time</strong><small>DJ Nexus · Album</small><span>Submitted 2 hrs ago</span></div><button class="approve-btn" data-approve="Lost in Time">Approve</button><button class="reject-btn" data-reject="Lost in Time">Review</button></div>
+            </div></section>
+            <section class="panel top-releases-panel"><div class="panel-head"><div><h2>Top performing releases</h2><p>Trending across platforms</p></div><button class="text-btn" data-page="Reports & Analytics">Analytics ↗</button></div><div class="top-release-list"><div class="top-release"><span class="rank">01</span><div class="cover cover-two">♫</div><div class="release-info"><strong>Midnight Dreams</strong><small>Armaan Malik</small></div><div class="release-performance"><strong>12.4M</strong><small class="trend up">↗ 24%</small></div></div><div class="top-release"><span class="rank">02</span><div class="cover cover-one">✦</div><div class="release-info"><strong>Dil Se</strong><small>Neha Sharma</small></div><div class="release-performance"><strong>9.8M</strong><small class="trend up">↗ 18%</small></div></div><div class="top-release"><span class="rank">03</span><div class="cover cover-three">◖</div><div class="release-info"><strong>Back To You</strong><small>The Vibe</small></div><div class="release-performance"><strong>8.2M</strong><small class="trend up">↗ 12%</small></div></div><div class="top-release"><span class="rank">04</span><div class="cover cover-four">✧</div><div class="release-info"><strong>Tera Mera</strong><small>Rohit & Priya</small></div><div class="release-performance"><strong>6.5M</strong><small class="trend up">↗ 10%</small></div></div></div></section>
+            <section class="panel releases-table-panel"><div class="panel-head"><div><h2>Recent releases</h2><p>Latest activity from your catalog</p></div><div class="table-actions"><input id="releaseFilter" class="table-search" placeholder="Filter releases…"><button class="text-btn" data-page="Releases">All releases ↗</button></div></div><div class="table-scroll"><table><thead><tr><th>Release</th><th>Artist</th><th>Type</th><th>Platforms</th><th>Status</th><th>Updated</th><th></th></tr></thead><tbody id="releaseTableBody">
+              <tr data-search="midnight dreams armaan malik single live"><td><div class="table-release"><div class="cover cover-two">♫</div><strong>Midnight Dreams</strong></div></td><td>Armaan Malik</td><td>Single</td><td><span class="mini-platform green">S</span><span class="mini-platform pink">A</span><span class="mini-platform red">Y</span></td><td><span class="status live">● Live</span></td><td>12 Oct 2026</td><td><button class="row-menu">•••</button></td></tr>
+              <tr data-search="dil se neha sharma album live"><td><div class="table-release"><div class="cover cover-one">✦</div><strong>Dil Se</strong></div></td><td>Neha Sharma</td><td>Album</td><td><span class="mini-platform green">S</span><span class="mini-platform pink">A</span><span class="mini-platform red">Y</span></td><td><span class="status live">● Live</span></td><td>11 Oct 2026</td><td><button class="row-menu">•••</button></td></tr>
+              <tr data-search="back to you the vibe single processing"><td><div class="table-release"><div class="cover cover-three">◖</div><strong>Back To You</strong></div></td><td>The Vibe</td><td>Single</td><td><span class="mini-platform green">S</span><span class="mini-platform pink">A</span></td><td><span class="status processing">● Processing</span></td><td>10 Oct 2026</td><td><button class="row-menu">•••</button></td></tr>
+              <tr data-search="tera mera rohit priya ep pending"><td><div class="table-release"><div class="cover cover-four">✧</div><strong>Tera Mera</strong></div></td><td>Rohit & Priya</td><td>EP</td><td><span class="mini-platform green">S</span><span class="mini-platform red">Y</span></td><td><span class="status pending">● Pending</span></td><td>09 Oct 2026</td><td><button class="row-menu">•••</button></td></tr>
+              <tr data-search="lost in time dj nexus album rejected"><td><div class="table-release"><div class="cover cover-five">◈</div><strong>Lost in Time</strong></div></td><td>DJ Nexus</td><td>Album</td><td><span class="mini-platform green">S</span><span class="mini-platform pink">A</span></td><td><span class="status rejected">● Needs edits</span></td><td>08 Oct 2026</td><td><button class="row-menu">•••</button></td></tr>
+            </tbody></table></div><div class="table-footer"><span id="tableCount">Showing 5 of 28,642 releases</span><div><button class="pagination-btn" disabled>‹</button><button class="pagination-btn current">1</button><button class="pagination-btn">2</button><button class="pagination-btn">3</button><button class="pagination-btn">›</button></div></div></section>
+          </div>
+        </section>
+        <section id="genericPage" class="page-panel hidden"><div class="generic-hero panel"><div class="generic-icon" id="genericIcon">♫</div><div><div class="eyebrow">PLAYSTAR WORKSPACE</div><h2 id="genericTitle">Releases</h2><p id="genericDescription">Manage your catalog and review release activity.</p></div><button class="primary-btn" id="genericAction">＋ Create new</button></div><div class="generic-cards" id="genericCards"></div><div class="panel generic-table"><div class="panel-head"><div><h2 id="genericTableTitle">Workspace records</h2><p>Demo data for this interactive front-end preview</p></div><input class="table-search" id="genericSearch" placeholder="Search records…"></div><div class="table-scroll"><table><thead><tr><th>Name</th><th>Details</th><th>Status</th><th>Updated</th><th>Action</th></tr></thead><tbody id="genericTableBody"></tbody></table></div></div></section>
+        <footer class="main-footer"><span>© 2026 PlayStar Digital. All rights reserved.</span><span>Designed for creators <b>♥</b> <i></i> Powered by <strong>Finext Software Solution</strong></span></footer>
+      </div>
+    </main>
+  </div>
+  <div id="toastHost" class="toast-host" aria-live="polite"></div>
+  <div id="modalBackdrop" class="modal-backdrop hidden"><div class="modal-card"><button class="modal-close" id="modalClose">×</button><div class="eyebrow">PLAYSTAR DIGITAL</div><h2 id="modalTitle">Create a release</h2><p id="modalText">Add details to continue.</p><form id="modalForm"><div id="modalFields"></div><div class="modal-actions"><button type="button" class="secondary-btn" id="modalCancel">Cancel</button><button type="submit" class="primary-btn" id="modalSubmit">Save changes</button></div></form></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
